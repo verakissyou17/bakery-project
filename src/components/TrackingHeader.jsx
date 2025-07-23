@@ -18,9 +18,11 @@ function TrackingHeader() {
         <button className="search-button" name="search-button">
           <img
             className="search-icon"
-            src="/bakery-project/images/icons/search-icon.png"
+            src="/bakery-project/images/icons/search-icon.webp"
             aria-labelledby="search-button"
             alt="search-button"
+            loading="lazy"
+            width={24}
           />
         </button>
       </div>
@@ -34,9 +36,10 @@ function TrackingHeader() {
         <Link className="cart-link header-link" to="/checkout" name="cart-link">
           <img
             className="cart-icon"
-            src="/bakery-project/images/icons/cart-icon.png"
+            src="/bakery-project/images/icons/cart-icon.webp"
             alt="cart-icon"
             aria-labelledby="cart-link"
+            loading="lazy"
           />
           <div
             className="cart-quantity"

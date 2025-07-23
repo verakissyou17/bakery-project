@@ -27,8 +27,8 @@
 body {
   background-color: var(--bg);
   min-height: 100vh;
-  background-image: url("/bakery-project//images/swirl-corners.png"),
-    url("/bakery-project/images/swirl-corners-2.png");
+  background-image: url("/bakery-project//images/swirl-corners.webp"),
+    url("/bakery-project/images/swirl-corners-2.webp");
   background-size: 8em, 8em;
   background-repeat: no-repeat, no-repeat;
   background-position: top var(--header-height) right -1.25em,
@@ -39,6 +39,7 @@ body {
 img,
 svg {
   max-width: 100%;
+  display: block;
   object-fit: cover;
 }
 
@@ -53,7 +54,7 @@ button {
 .header {
   background-color: var(--bg-header);
   color: var(--white);
-  padding-inline: 1rem;
+  padding-inline: 0.5em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,17 +67,15 @@ button {
 
 .header-left-section {
   width: unset;
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
   text-align: center;
 }
 
 .header-link {
   display: inline-block;
-  padding: 0.5em;
   border-radius: 0.125em;
   cursor: pointer;
   color: var(--white);
-  letter-spacing: 2px;
   text-decoration: none;
 }
 
@@ -89,7 +88,7 @@ button {
 }
 
 .mobile-logo {
-  display: flex;
+  display: block;
   font-size: clamp(1.2rem, 0.566rem + 2.704vw, 3rem);
 }
 
@@ -122,16 +121,17 @@ button {
 }
 
 .search-icon {
-  height: 1.5rem;
   margin-left: 0.125em;
   margin-top: 0.1875em;
 }
 
 .header-right-section {
-  width: 11.25em;
+  width: 8em;
+  padding: 0 0.25em;
   flex-shrink: 0;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .orders-link {
@@ -156,10 +156,6 @@ button {
   position: relative;
 }
 
-.cart-icon {
-  width: 3.125em;
-}
-
 .cart-text {
   margin-top: 0.75em;
   font-size: 0.9375rem;
@@ -170,11 +166,9 @@ button {
   color: var(--white);
   font-size: 1rem;
   font-weight: 700;
-
   position: absolute;
-  top: 0.25rem;
-  left: 1.375rem;
-
+  top: 0;
+  left: 1rem;
   width: 1.625rem;
   text-align: center;
 }
@@ -206,7 +200,7 @@ button {
 }
 
 .product-image-container {
-  height: 16em;
+  height: 12em;
   width: 100%;
 }
 
@@ -268,23 +262,6 @@ button {
   background-color: transparent;
   display: grid;
   place-content: center;
-}
-
-.added-to-cart {
-  display: none;
-}
-
-.added-to-cart.added {
-  color: var(--added);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  margin-top: 1em;
-}
-
-.added-to-cart img {
-  height: 1.2em;
-  margin-right: 0.2em;
 }
 
 /* CheckoutHeader */
@@ -618,6 +595,7 @@ footer {
 
 .buy-again-button {
   font-size: 0.9375em;
+  text-decoration: none;
   font-weight: bold;
   width: 8.75em;
   height: 2.25em;

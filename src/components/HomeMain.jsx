@@ -1,8 +1,13 @@
 import { useProducts } from "../contexts/useProducts";
 import { formatPrice } from "../utils/formatPrice";
+import { useParams } from "react-router-dom";
 
 function HomeMain() {
    const { products, setQuantities, quantities, addToCart} = useProducts();
+
+   const {orderedProduct} = useParams();
+   const buyAgain = products.map((product) => product.name === orderedProduct);
+   console.log(buyAgain);
 
   function incrementQuantity(productId) {
     setQuantities((prev) => ({
@@ -36,6 +41,9 @@ function HomeMain() {
                   className="product-image"
                   src={product.image}
                   alt={product.name}
+                  loading="lazy"
+                  width={250}
+                  height={250}
                 />
               </div>
               <section className="product-details">
@@ -54,6 +62,8 @@ function HomeMain() {
                         src="/bakery-project/images/icons/decrement-quantity.svg"
                         alt="decrement icon"
                         aria-labelledby="decrement-quantity"
+                        loading="lazy"
+                        width={15}
                       />
                     </button>
                     <span className="quantity">{productQty}</span>
@@ -62,6 +72,8 @@ function HomeMain() {
                         src="/bakery-project/images/icons/increment-quantity.svg"
                         alt="increment icon"
                         aria-labelledby="increment-quantity"
+                        loading="lazy"
+                        width={15}
                       />
                     </button>
                   </div>
@@ -72,14 +84,6 @@ function HomeMain() {
                   >
                     Add To Cart
                   </button>
-                </div>
-
-                <div className="added-to-cart">
-                  <img
-                    src="/bakery-project/images/icons/checkmark.png"
-                    alt="checkmark-icon"
-                  />
-                  Added
                 </div>
               </section>
             </div>

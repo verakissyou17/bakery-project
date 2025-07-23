@@ -18,9 +18,11 @@ function OrdersHeader() {
         <button className="search-button" name="search-button">
           <img
             className="search-icon"
-            src="/bakery-project/images/icons/search-icon.png"
+            src="/bakery-project/images/icons/search-icon.webp"
             aria-labelledby="search-button"
             alt="search-button"
+            loading="lazy"
+            width={24}
           />
         </button>
       </div>
@@ -34,9 +36,11 @@ function OrdersHeader() {
         <Link className="cart-link header-link" to="/checkout" name="cart-link">
           <img
             className="cart-icon"
-            src="/bakery-project/images/icons/cart-icon.png"
+            src="/bakery-project/images/icons/cart-icon.webp"
             aria-labelledby="cart-link"
             alt="cart-icon"
+            loading="lazy"
+            width={50}
           />
           <div
             className="cart-quantity"

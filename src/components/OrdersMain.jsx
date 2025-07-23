@@ -47,6 +47,9 @@ function OrdersMain() {
                         className="orders-product-image"
                         src={item.image}
                         alt={item.name}
+                        loading="lazy"
+                        width={250}
+                        height={250}
                       />
                     </div>
                     <div className="orders-product-details">
@@ -60,14 +63,16 @@ function OrdersMain() {
                       <div className="orders-product-quantity">
                         Quantity: {item.quantity}
                       </div>
-                      <button className="buy-again-button">
+                      <Link to={`/home/${item.name}`} className="buy-again-button" >
                         <img
                           className="buy-again-icon"
-                          src="/bakery-project/images/icons/buy-again.png"
+                          src="/bakery-project/images/icons/buy-again.webp"
                           alt="Buy again"
+                          loading="lazy"
+
                         />
                         <span className="buy-again-message">Buy it again</span>
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 ))}

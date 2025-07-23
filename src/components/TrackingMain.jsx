@@ -53,6 +53,7 @@ function TrackingMain() {
                     className="tracking-product-image"
                     src={item.image}
                     alt={item.name}
+                    loading="lazy"
                   />
                 </div>
               );

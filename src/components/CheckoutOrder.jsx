@@ -45,6 +45,9 @@ function OrderSummary() {
                 className="checkout-product-image"
                 src={matchingProduct.image}
                 alt={matchingProduct.name}
+                loading="lazy"
+                width={250}
+                height={250}
               />
               <div className="cart-item-details">
                 <div className="checkout-product-name">
@@ -68,6 +71,8 @@ function OrderSummary() {
                         src="/bakery-project/images/icons/decrement-quantity.svg"
                         alt="decrement icon"
                         aria-labelledby="decrement-quantity"
+                        loading="lazy"
+                        width={15}
                       />
                     </button>
                     <span className="quantity">{matchingProduct.quantity}</span>
@@ -85,6 +90,8 @@ function OrderSummary() {
                         src="/bakery-project/images/icons/increment-quantity.svg"
                         alt="increment icon"
                         aria-labelledby="increment-quantity"
+                        loading="lazy"
+                        width={15}
                       />
                     </button>
                   </div>
