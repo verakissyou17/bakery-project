@@ -64,7 +64,7 @@ function OrderSummary() {
                       }
                     >
                       <img
-                        src="./src/images/icons/decrement-quantity.svg"
+                        src="/bakery-project/images/icons/decrement-quantity.svg"
                         alt="decrement icon"
                       />
                     </button>
@@ -79,7 +79,7 @@ function OrderSummary() {
                       }
                     >
                       <img
-                        src="./src/images/icons/increment-quantity.svg"
+                        src="/bakery-project/images/icons/increment-quantity.svg"
                         alt="increment icon"
                       />
                     </button>

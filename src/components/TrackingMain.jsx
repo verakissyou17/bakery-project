@@ -51,7 +51,7 @@ function TrackingMain() {
 
                   <img
                     className="tracking-product-image"
-                    src={`../${item.image}`}
+                    src={item.image}
                     alt={item.name}
                   />
                 </div>

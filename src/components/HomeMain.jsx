@@ -51,14 +51,14 @@ function HomeMain() {
                   <div className="quantity-container primary-btn">
                     <button onClick={() => decrementQuantity(product.id)}>
                       <img
-                        src="./src/images/icons/decrement-quantity.svg"
+                        src="/bakery-project/images/icons/decrement-quantity.svg"
                         alt="decrement icon"
                       />
                     </button>
                     <span className="quantity">{productQty}</span>
                     <button onClick={() => incrementQuantity(product.id)}>
                       <img
-                        src="./src/images/icons/increment-quantity.svg"
+                        src="/bakery-project/images/icons/increment-quantity.svg"
                         alt="increment icon"
                       />
                     </button>
@@ -74,7 +74,7 @@ function HomeMain() {
 
                 <div className="added-to-cart">
                   <img
-                    src="./src/images/icons/checkmark.png"
+                    src="/bakery-project/images/icons/checkmark.png"
                     alt="checkmark-icon"
                   />
                   Added

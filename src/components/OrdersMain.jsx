@@ -63,7 +63,7 @@ function OrdersMain() {
                       <button className="buy-again-button">
                         <img
                           className="buy-again-icon"
-                          src="./src/images/icons/buy-again.png"
+                          src="/bakery-project/images/icons/buy-again.png"
                           alt="Buy again"
                         />
                         <span className="buy-again-message">Buy it again</span>

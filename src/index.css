@@ -27,8 +27,8 @@
 body {
   background-color: var(--bg);
   min-height: 100vh;
-  background-image: url("./images/swirl-corners.png"),
-    url("./images/swirl-corners-2.png");
+  background-image: url("/bakery-project//images/swirl-corners.png"),
+    url("/bakery-project/images/swirl-corners-2.png");
   background-size: 8em, 8em;
   background-repeat: no-repeat, no-repeat;
   background-position: top var(--header-height) right -1.25em,
