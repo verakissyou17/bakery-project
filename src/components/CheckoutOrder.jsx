@@ -9,7 +9,7 @@ function OrderSummary() {
     matchingProducts,
     updateCartItemQuantity,
     selectedDeliveryOptionId,
-    handleSelectedOptionId
+    handleSelectedOptionId,
   } = useProducts();
 
   function handleQuantityChange(productId, newQuantity) {
@@ -56,6 +56,7 @@ function OrderSummary() {
                 <div className="home-cart-container">
                   <div className="quantity-container primary-btn">
                     <button
+                      name="decrement-quantity"
                       onClick={() =>
                         handleQuantityChange(
                           matchingProduct.id,
@@ -66,11 +67,13 @@ function OrderSummary() {
                       <img
                         src="/bakery-project/images/icons/decrement-quantity.svg"
                         alt="decrement icon"
+                        aria-labelledby="decrement-quantity"
                       />
                     </button>
                     <span className="quantity">{matchingProduct.quantity}</span>
 
                     <button
+                      name="increment-quantity"
                       onClick={() =>
                         handleQuantityChange(
                           matchingProduct.id,
@@ -81,6 +84,7 @@ function OrderSummary() {
                       <img
                         src="/bakery-project/images/icons/increment-quantity.svg"
                         alt="increment icon"
+                        aria-labelledby="increment-quantity"
                       />
                     </button>
                   </div>

@@ -49,17 +49,19 @@ function HomeMain() {
 
                 <div className="home-cart-container">
                   <div className="quantity-container primary-btn">
-                    <button onClick={() => decrementQuantity(product.id)}>
+                    <button name="decrement-quantity" onClick={() => decrementQuantity(product.id)}>
                       <img
                         src="/bakery-project/images/icons/decrement-quantity.svg"
                         alt="decrement icon"
+                        aria-labelledby="decrement-quantity"
                       />
                     </button>
                     <span className="quantity">{productQty}</span>
-                    <button onClick={() => incrementQuantity(product.id)}>
+                    <button name="increment-quantity" onClick={() => incrementQuantity(product.id)}>
                       <img
                         src="/bakery-project/images/icons/increment-quantity.svg"
                         alt="increment icon"
+                        aria-labelledby="increment-quantity"
                       />
                     </button>
                   </div>
