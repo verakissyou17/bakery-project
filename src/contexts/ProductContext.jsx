@@ -15,7 +15,9 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     async function fetchData() {
       try {
-       const res = await fetch(new URL(`${import.meta.env.BASE_URL}products.json`, import.meta.url));
+        const res = await fetch(
+          new URL(`${import.meta.env.BASE_URL}products.json`, import.meta.url)
+        );
         if (!res.ok) throw new Error("Could not fetch products.");
         const data = await res.json();
         setProducts(data);
@@ -90,7 +92,6 @@ export const ProductProvider = ({ children }) => {
       ...item,
       deliveryOptionId: newId,
     }));
-
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   }

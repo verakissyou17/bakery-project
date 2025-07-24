@@ -1,13 +1,9 @@
 import { useProducts } from "../contexts/useProducts";
 import { formatPrice } from "../utils/formatPrice";
-import { useParams } from "react-router-dom";
+import { MainStyled, QuantityContainer } from "../styles/Main.styled";
 
 function HomeMain() {
-   const { products, setQuantities, quantities, addToCart} = useProducts();
-
-   const {orderedProduct} = useParams();
-   const buyAgain = products.map((product) => product.name === orderedProduct);
-   console.log(buyAgain);
+  const { products, setQuantities, quantities, addToCart } = useProducts();
 
   function incrementQuantity(productId) {
     setQuantities((prev) => ({
@@ -27,9 +23,30 @@ function HomeMain() {
     });
   }
   return (
-    <main className="main">
+    <MainStyled>
+      {products.length === 0 && (
+        <div className="product-container">
+          <div className="product-image-container">
+            <img
+              className="product-image"
+              src="/bakery-project/images/products/chocolate-fudge-cake.webp"
+              alt="Chocolate Fudge Cake"
+              width="250"
+              height="250"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </div>
+          <section className="product-details">
+            <div className="product-name">
+              <h1>Chocolate Fudge Cake</h1>
+            </div>
+            <div className="product-price">12.99lei</div>
+          </section>
+        </div>
+      )}
       <div className="products-container">
-        {products.map((product) => {
+        {products.map((product, index) => {
           const productQty = quantities[product.id] || 0;
           return (
             <div
@@ -41,7 +58,9 @@ function HomeMain() {
                   className="product-image"
                   src={product.image}
                   alt={product.name}
-                  loading="lazy"
+                  loading={index === 0 ? undefined : "lazy"}
+                  fetchPriority={index === 0 ? "high" : undefined}
+                  decoding="async"
                   width={250}
                   height={250}
                 />
@@ -50,47 +69,34 @@ function HomeMain() {
                 <div className="product-name">
                   <h1>{product.name}</h1>
                 </div>
-
                 <div className="product-price">
-                  ${formatPrice(product.priceCents)}
+                  {formatPrice(product.priceCents)}lei
                 </div>
-
-                <div className="home-cart-container">
+                <QuantityContainer>
                   <div className="quantity-container primary-btn">
-                    <button name="decrement-quantity" onClick={() => decrementQuantity(product.id)}>
-                      <img
-                        src="/bakery-project/images/icons/decrement-quantity.svg"
-                        alt="decrement icon"
-                        aria-labelledby="decrement-quantity"
-                        loading="lazy"
-                        width={15}
-                      />
-                    </button>
+                    <button
+                      name="decrement-quantity"
+                      onClick={() => decrementQuantity(product.id)}
+                    >-</button>
                     <span className="quantity">{productQty}</span>
-                    <button name="increment-quantity" onClick={() => incrementQuantity(product.id)}>
-                      <img
-                        src="/bakery-project/images/icons/increment-quantity.svg"
-                        alt="increment icon"
-                        aria-labelledby="increment-quantity"
-                        loading="lazy"
-                        width={15}
-                      />
-                    </button>
+                    <button
+                      name="increment-quantity"
+                      onClick={() => incrementQuantity(product.id)}
+                    >+</button>
                   </div>
-
                   <button
                     className="add-to-cart-btn primary-btn"
                     onClick={() => addToCart(product.id, productQty)}
                   >
-                    Add To Cart
+                    Adauga
                   </button>
-                </div>
+                </QuantityContainer>
               </section>
             </div>
           );
         })}
       </div>
-    </main>
+    </MainStyled>
   );
 }
 

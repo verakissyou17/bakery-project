@@ -8,7 +8,7 @@ function OrdersMain() {
 
   return (
     <main className="orders-main">
-      <div className="orders-page-title">Your Orders</div>
+      <div className="orders-page-title">Comenzile tale</div>
       <div className="orders-grid">
         {matchingOrders.map((matchingOrder) => {
           return (
@@ -19,7 +19,7 @@ function OrdersMain() {
               <div className="order-header">
                 <div className="order-header-left-section">
                   <div className="order-date">
-                    <div className="order-header-label">Order Placed:</div>
+                    <div className="order-header-label">Data comanda:</div>
                     <div>
                       {dayjs(matchingOrder.orderTime).format("ddd,  MMMM D")}
                     </div>
@@ -31,7 +31,7 @@ function OrdersMain() {
                 </div>
 
                 <div className="order-header-right-section">
-                  <div className="order-header-label">Order ID:</div>
+                  <div className="order-header-label"> ID Comanda:</div>
                   <div>{matchingOrder.id}</div>
                 </div>
               </div>
@@ -47,7 +47,6 @@ function OrdersMain() {
                         className="orders-product-image"
                         src={item.image}
                         alt={item.name}
-                        loading="lazy"
                         width={250}
                         height={250}
                       />
@@ -55,23 +54,23 @@ function OrdersMain() {
                     <div className="orders-product-details">
                       <div className="orders-product-name">{item.name}</div>
                       <div className="orders-product-delivery-date">
-                        Arriving on:{" "}
+                        Data sosire:{" "}
                         {dayjs(
                           matchingOrder.products[index].estimatedDeliveryTime
                         ).format("ddd, MMMM D")}
                       </div>
                       <div className="orders-product-quantity">
-                        Quantity: {item.quantity}
+                        Cantitate: {item.quantity}
                       </div>
                       <Link to={`/home/${item.name}`} className="buy-again-button" >
                         <img
                           className="buy-again-icon"
                           src="/bakery-project/images/icons/buy-again.webp"
                           alt="Buy again"
-                          loading="lazy"
-
+                          width={20}
+                          height={20}
                         />
-                        <span className="buy-again-message">Buy it again</span>
+                        <span className="buy-again-message">Cumpara din nou</span>
                       </Link>
                     </div>
                   </div>
@@ -81,7 +80,7 @@ function OrdersMain() {
                   <div className="product-actions">
                     <Link to={`/tracking/${matchingOrder.id}`}>
                       <button className="track-package-button button-secondary">
-                        Track package
+                        Urmareste livrarea
                       </button>
                     </Link>
                   </div>

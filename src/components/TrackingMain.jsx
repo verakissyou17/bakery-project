@@ -12,11 +12,10 @@ function TrackingMain() {
     <main className="tracking-main">
       {matchingOrder.map((order, i) => {
         const orderTime = dayjs(order.orderTime);
-        const deliveryTime = dayjs(
-          order.products[i].estimatedDeliveryTime);
-          const diff = deliveryTime.diff(orderTime, "hours");
-          const elapsedTime = dayjs().diff(orderTime, "hour");
-          const percent = Math.min((elapsedTime / diff) * 100, 100);
+        const deliveryTime = dayjs(order.products[i].estimatedDeliveryTime);
+        const diff = deliveryTime.diff(orderTime, "hours");
+        const elapsedTime = dayjs().diff(orderTime, "hour");
+        const percent = Math.min((elapsedTime / diff) * 100, 100);
         return (
           <div
             key={order.id}
@@ -26,9 +25,9 @@ function TrackingMain() {
               className="back-to-orders-link link-primary"
               to="/orders"
             >
-              View all orders
+              Toate comenzile
             </Link>
-            {order.items.map((item) => {
+            {order.items.map((item, index) => {
               return (
                 <div
                   key={item.name}
@@ -36,7 +35,7 @@ function TrackingMain() {
                 >
                   <div className="tracking-product-details">
                     <div className="tracking-delivery-date">
-                      Arriving on{" "}
+                      Data sosire: {" "}
                       {dayjs(order.products[i].estimatedDeliveryTime).format(
                         "ddd, MMMM D"
                       )}
@@ -45,7 +44,7 @@ function TrackingMain() {
                     <h1 className="product-info">{item.name}</h1>
 
                     <div className="product-info">
-                      Quantity: {item.quantity}
+                      Cantitate: {item.quantity}
                     </div>
                   </div>
 
@@ -53,19 +52,36 @@ function TrackingMain() {
                     className="tracking-product-image"
                     src={item.image}
                     alt={item.name}
-                    loading="lazy"
+                    width={250}
+                    height={250}
+                    loading={index === 0 ? undefined : "lazy"}
+                    fetchPriority={index === 0 ? "high" : undefined}
                   />
                 </div>
               );
             })}
             <div className="progress-labels-container">
-              {percent <= 35 
-              ? (<div className="progress-label preparing">Preparing {percent.toFixed(2)} %</div>) : null}
-              {percent > 35 && percent <= 75 ? (<div className="progress-label shipped">Shipped {percent.toFixed(2)} %</div>) : null}
-              {percent > 75 ? (<div className="progress-label delivered">Delivered {percent.toFixed(2)} %</div>) : null}
+              {percent <= 35 ? (
+                <div className="progress-label preparing">
+                  Preparare {percent.toFixed(2)} %
+                </div>
+              ) : null}
+              {percent > 35 && percent <= 75 ? (
+                <div className="progress-label shipped">
+                  Preluat curier {percent.toFixed(2)} %
+                </div>
+              ) : null}
+              {percent > 75 ? (
+                <div className="progress-label delivered">
+                  Livrat {percent.toFixed(2)} %
+                </div>
+              ) : null}
             </div>
             <div className="progress-bar-container">
-              <div className="progress-bar" style={{ width: `${percent}%` }}></div>
+              <div
+                className="progress-bar"
+                style={{ width: `${percent}%` }}
+              ></div>
             </div>
           </div>
         );

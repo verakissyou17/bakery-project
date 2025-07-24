@@ -1,7 +1,8 @@
-import HomeHeader from "../components/HomeHeader";
+import Header from "../components/Header";
 import HomeMain from "../components/HomeMain";
 import Footer from "../components/Footer";
 import { useProducts } from "../contexts/useProducts";
+import FeaturedProduct from "../components/FeaturedProduct";
 
 function Home() {
   const {
@@ -14,7 +15,8 @@ function Home() {
   } = useProducts();
   return (
     <>
-      <HomeHeader totalQuantity={totalQuantity} />
+      <FeaturedProduct />
+      <Header totalQuantity={totalQuantity} />
       <HomeMain
         products={products}
         quantities={quantities}

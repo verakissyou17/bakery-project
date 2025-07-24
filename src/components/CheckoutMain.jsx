@@ -1,7 +1,8 @@
-import OrderSummary from "./CheckoutOrder";
-import PaymentSummary from "./CkeckoutPaymment";
+import OrderSummary from "./OrderSummary";
+import PaymentSummary from "./PaymentSummary";
 import { useProducts } from "../contexts/useProducts";
 import { useOrders } from "../contexts/useOrders";
+import { CheckoutMainStyled } from "../styles/CheckoutMain.styled";
 
 function CheckoutMain() {
   const {
@@ -17,33 +18,29 @@ function CheckoutMain() {
   const { addOrder } = useOrders();
 
   return (
-    <main className="checkout-main">
-      <h1 className="page-title">Review your order</h1>
+    <CheckoutMainStyled>
+      <h1 className="page-title">Cos de cumparaturi</h1>
 
       <div className="checkout-grid">
-        <div className="order-summary">
-          <OrderSummary
-            cart={cart}
-            matchingProducts={matchingProducts}
-            updateCartItemQuantity={updateCartItemQuantity}
-            selectedDeliveryOptionId={selectedDeliveryOptionId}
-            handleSelectedOptionId={handleSelectedOptionId}
-          />
-        </div>
+        <OrderSummary
+          matchingProducts={matchingProducts}
+          updateCartItemQuantity={updateCartItemQuantity}
+          selectedDeliveryOptionId={selectedDeliveryOptionId}
+        />
 
-        <div className="payment-summary">
+        {cart.length > 0 && (
           <PaymentSummary
             totalQuantity={totalQuantity}
-            cart={cart}
             matchingProducts={matchingProducts}
-            updateCartItemQuantity={updateCartItemQuantity}
             selectedDeliveryOptionId={selectedDeliveryOptionId}
-            addOrder={addOrder}
+            handleSelectedOptionId={handleSelectedOptionId}
+            cart={cart}
             setCart={setCart}
+            addOrder={addOrder}
           />
-        </div>
+        )}
       </div>
-    </main>
+    </CheckoutMainStyled>
   );
 }
 

@@ -1,4 +1,4 @@
-// src/App.jsx
+// import '/fonts/fonts.css';
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";

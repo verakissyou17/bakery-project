@@ -2,14 +2,15 @@ import { useProducts } from "../contexts/useProducts";
 import dayjs from "dayjs";
 import { formatPrice } from "../utils/formatPrice";
 import { deliveryOptions } from "../data/deliveryOptions";
+import { QuantityContainer } from "../styles/Main.styled";
+import { OrderSummaryStyled } from "../styles/OrderSummary.styled";
+
 
 function OrderSummary() {
   const {
-    cart,
     matchingProducts,
     updateCartItemQuantity,
     selectedDeliveryOptionId,
-    handleSelectedOptionId,
   } = useProducts();
 
   function handleQuantityChange(productId, newQuantity) {
@@ -21,7 +22,7 @@ function OrderSummary() {
   }
 
   return (
-    <>
+    <OrderSummaryStyled>
       {matchingProducts.map((matchingProduct) =>
         matchingProduct.quantity > 0 ? (
           <div
@@ -40,23 +41,23 @@ function OrderSummary() {
                 </div>
               ) : null
             )}
-            <div className="cart-item-details-grid">
+            <section className="cart-item-details-grid">
               <img
                 className="checkout-product-image"
                 src={matchingProduct.image}
                 alt={matchingProduct.name}
-                loading="lazy"
                 width={250}
                 height={250}
+                fetchPriority="hight"
               />
               <div className="cart-item-details">
-                <div className="checkout-product-name">
+                <h2 className="checkout-product-name">
                   {matchingProduct.name}
-                </div>
+                </h2>
                 <div className="checkout-product-price">
-                  ${formatPrice(matchingProduct.priceCents)}
+                  {formatPrice(matchingProduct.priceCents)}lei
                 </div>
-                <div className="home-cart-container">
+                <QuantityContainer>
                   <div className="quantity-container primary-btn">
                     <button
                       name="decrement-quantity"
@@ -67,13 +68,7 @@ function OrderSummary() {
                         )
                       }
                     >
-                      <img
-                        src="/bakery-project/images/icons/decrement-quantity.svg"
-                        alt="decrement icon"
-                        aria-labelledby="decrement-quantity"
-                        loading="lazy"
-                        width={15}
-                      />
+                      -
                     </button>
                     <span className="quantity">{matchingProduct.quantity}</span>
 
@@ -86,13 +81,7 @@ function OrderSummary() {
                         )
                       }
                     >
-                      <img
-                        src="/bakery-project/images/icons/increment-quantity.svg"
-                        alt="increment icon"
-                        aria-labelledby="increment-quantity"
-                        loading="lazy"
-                        width={15}
-                      />
+                      +
                     </button>
                   </div>
 
@@ -102,45 +91,15 @@ function OrderSummary() {
                       handleDelete(matchingProduct.id, matchingProduct.quantity)
                     }
                   >
-                    Delete
+                    Sterge
                   </button>
-                </div>
+                </QuantityContainer>
               </div>
-            </div>
+            </section>
           </div>
         ) : null
       )}
-
-      {cart.length > 0 ? (
-        <form className="delivery-options">
-          <h1 className="delivery-options-title">Choose a delivery option:</h1>
-          {deliveryOptions.map((option) => (
-            <label
-              key={option.id}
-              className="delivery-option"
-            >
-              {option.id === "1" ? "Pick-up" : "Delivery"}
-              <input
-                type="radio"
-                name="delivery"
-                checked={selectedDeliveryOptionId === option.id}
-                onChange={() => handleSelectedOptionId(option.id)}
-              />
-              <div>
-                <div className="delivery-option-date">
-                  {dayjs()
-                    .add(Number(option.deliveryDays), "day")
-                    .format("ddd, MMMM D")}
-                </div>
-                <div className="delivery-option-price">
-                  ${(option.priceCents / 100).toFixed(2)}
-                </div>
-              </div>
-            </label>
-          ))}
-        </form>
-      ) : null}
-    </>
+    </OrderSummaryStyled>
   );
 }
 

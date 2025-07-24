@@ -1,4 +1,4 @@
-import TrackingHeader  from "../components/TrackingHeader";
+import Header  from "../components/Header";
 import TrackingMain from "../components/TrackingMain";
 import Footer from "../components/Footer";
 import { useProducts } from "../contexts/useProducts";
@@ -9,7 +9,7 @@ function Tracking() {
   const { matchingOrders} = useOrders();
   return (
     <>
-    <TrackingHeader totalQuantity={totalQuantity} />
+    <Header totalQuantity={totalQuantity} />
     <TrackingMain matchingOrders={matchingOrders}/>
     <Footer />
     </>

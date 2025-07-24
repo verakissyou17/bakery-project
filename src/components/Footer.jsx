@@ -1,11 +1,12 @@
+import { FooterStyled } from "../styles/Footer.styled";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer>
+    <FooterStyled>
       <small>@Copyright {currentYear}. </small>
       <small>Made with 💞 by Vera</small>
-    </footer>
+    </FooterStyled>
   );
 }
 

@@ -1,4 +1,4 @@
-import OrdersHeader from "../components/OrdersHeader";
+import Header from "../components/Header";
 import OrdersMain from "../components/OrdersMain";
 import Footer from "../components/Footer";
 import { useProducts } from "../contexts/useProducts";
@@ -9,7 +9,7 @@ function Orders() {
   const { matchingOrders} = useOrders();
   return (
     <>
-      <OrdersHeader totalQuantity={totalQuantity} />
+      <Header totalQuantity={totalQuantity} />
       <OrdersMain  matchingOrders={matchingOrders} />
       <Footer />
     </>
