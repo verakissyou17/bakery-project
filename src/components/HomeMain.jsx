@@ -64,7 +64,7 @@ function HomeMain({ products, setQuantities, quantities, addToCart }) {
         {products.length === 0 ? (
           <p>No products match your search.</p>
         ) : (
-          products.map((product, index) => {
+          products.map((product) => {
             const productQty = quantities[product.id] || 0;
             return (
               <div

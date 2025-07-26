@@ -1,24 +1,16 @@
 @font-face {
-  font-family: "Cookie";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/cookie/cookie-v22-latin-regular.woff2") format("woff2");
+  font-family: 'Nunito Sans';
+  src: url('/bakery-project/fonts/nunito-sans/nunito-sans-v18-latin-900.woff2') format('woff2');
+  font-weight: 900;
   font-display: swap;
-  ascent-override: 92%;
-  descent-override: 23%;
-  line-gap-override: 0%;
 }
 
 @font-face {
-  font-family: "Nunito Sans";
-  font-style: normal;
-  font-weight: 900;
-  src: url("/fonts/nunito-sans/nunito-sans-v18-latin-900.woff2") format("woff2");
+  font-family: 'Cookie';
+  src: url('/bakery-project/fonts/cookie/cookie-v22-latin-regular.woff2') format('woff2');
   font-display: swap;
-  ascent-override: 92%;
-  descent-override: 23%;
-  line-gap-override: 0%;
 }
+
 
 :root {
   --white: hsl(0, 0%, 100%);

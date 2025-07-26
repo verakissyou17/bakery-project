@@ -26,7 +26,7 @@ function TrackingMain({ matchingOrders }) {
             >
               Toate comenzile
             </Link>
-            {order.items.map((item, index) => {
+            {order.items.map((item) => {
               return (
                 <div
                   key={item.name}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PageBannerStyled = styled.section`
   margin-top: calc(var(--header-height));
   background-color: var(--bg);
-  background-image: url("./src/images/pattern.webp");
+  background-image: url("/bakery-project/images/pattern.webp");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
