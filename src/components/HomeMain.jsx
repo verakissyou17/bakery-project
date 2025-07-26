@@ -3,7 +3,7 @@ import { MainStyled, QuantityContainer } from "../styles/Main.styled";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-function HomeMain({products, setQuantities, quantities, addToCart}) {
+function HomeMain({ products, setQuantities, quantities, addToCart }) {
   const { orderedId } = useParams();
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function HomeMain({products, setQuantities, quantities, addToCart}) {
               alt="Chocolate Fudge Cake"
               width="250"
               height="250"
-              fetchPriority="high"
+              loading="lazy"
               decoding="async"
             />
           </div>
@@ -77,8 +77,7 @@ function HomeMain({products, setQuantities, quantities, addToCart}) {
                     className="product-image"
                     src={product.image}
                     alt={product.name}
-                    loading={index === 0 ? undefined : "lazy"}
-                    fetchPriority={index === 0 ? "high" : undefined}
+                    loading="lazy"
                     decoding="async"
                     width={250}
                     height={250}

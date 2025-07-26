@@ -44,7 +44,8 @@ function OrderSummary({
                 alt={matchingProduct.name}
                 width={250}
                 height={250}
-                fetchPriority="hight"
+                loading="lazy"
+                decoding="async"
               />
               <div className="cart-item-details">
                 <h2 className="checkout-product-name">

@@ -5,8 +5,7 @@ import {
   MobileLogoStyled,
 } from "../styles/Header.styled";
 
-function Header({totalQuantity, searchTerm, setSearchTerm, onSearchSubmit }) {
-
+function Header({ totalQuantity, searchTerm, setSearchTerm, onSearchSubmit }) {
   const handleSearch = (e) => {
     e.preventDefault();
     onSearchSubmit(searchTerm.trim());
@@ -42,6 +41,8 @@ function Header({totalQuantity, searchTerm, setSearchTerm, onSearchSubmit }) {
             alt="search-button"
             width={24}
             height={24}
+            loading="lazy"
+            decoding="async"
           />
         </button>
       </div>
@@ -66,6 +67,8 @@ function Header({totalQuantity, searchTerm, setSearchTerm, onSearchSubmit }) {
             src="/bakery-project/images/icons/cart-icon.webp"
             alt="cart-icon"
             aria-labelledby="cart-link"
+            loading="lazy"
+            decoding="async"
             width={60}
             height={40}
           />

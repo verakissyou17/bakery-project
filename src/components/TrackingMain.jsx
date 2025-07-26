@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import dayjs from "dayjs";
-import {TrackingMainStyled} from "../styles/TrackingMain.styled";
+import { TrackingMainStyled } from "../styles/TrackingMain.styled";
 
 function TrackingMain({ matchingOrders }) {
   const { orderId } = useParams();
@@ -34,7 +34,7 @@ function TrackingMain({ matchingOrders }) {
                 >
                   <div className="tracking-product-details">
                     <div className="tracking-delivery-date">
-                      Data sosire: {" "}
+                      Data sosire:{" "}
                       {dayjs(order.products[i].estimatedDeliveryTime).format(
                         "ddd, MMMM D"
                       )}
@@ -53,8 +53,8 @@ function TrackingMain({ matchingOrders }) {
                     alt={item.name}
                     width={250}
                     height={250}
-                    loading={index === 0 ? undefined : "lazy"}
-                    fetchPriority={index === 0 ? "high" : undefined}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               );

@@ -47,6 +47,8 @@ function OrdersMain({ matchingOrders }) {
                         alt={item.name}
                         width={250}
                         height={250}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <div className="orders-product-details">
@@ -60,15 +62,22 @@ function OrdersMain({ matchingOrders }) {
                       <div className="orders-product-quantity">
                         Cantitate: {item.quantity}
                       </div>
-                      <Link to={`/home/${ matchingOrder.products[index].productId}`} className="buy-again-button" >
+                      <Link
+                        to={`/home/${matchingOrder.products[index].productId}`}
+                        className="buy-again-button"
+                      >
                         <img
                           className="buy-again-icon"
                           src="/bakery-project/images/icons/buy-again.webp"
                           alt="Buy again"
                           width={20}
                           height={20}
+                          loading="lazy"
+                          decoding="async"
                         />
-                        <span className="buy-again-message">Cumpara din nou</span>
+                        <span className="buy-again-message">
+                          Cumpara din nou
+                        </span>
                       </Link>
                     </div>
                   </div>
