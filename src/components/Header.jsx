@@ -1,25 +1,23 @@
 import { Link } from "react-router-dom";
-import { useProducts } from "../contexts/useProducts";
 import {
   HeaderStyled,
   LogoStyled,
   MobileLogoStyled,
 } from "../styles/Header.styled";
 
-function Header() {
-  const { totalQuantity } = useProducts();
+function Header({totalQuantity, searchTerm, setSearchTerm, onSearchSubmit }) {
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    onSearchSubmit(searchTerm.trim());
+  };
 
   return (
     <HeaderStyled>
       <div className="header-left-section">
-        <Link
-          to="/home"
-          className="header-link"
-        >
+        <Link to="/home">
           <LogoStyled>Riviana Dolce</LogoStyled>
-          <MobileLogoStyled>
-            Riviana Dolce
-          </MobileLogoStyled>
+          <MobileLogoStyled>Riviana Dolce</MobileLogoStyled>
         </Link>
       </div>
 
@@ -27,12 +25,15 @@ function Header() {
         <input
           className="search-bar"
           type="text"
-          placeholder="Cauta..."
+          placeholder="Cauta produse..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
 
         <button
           className="search-button"
           name="search-button"
+          onClick={handleSearch}
         >
           <img
             className="search-icon"

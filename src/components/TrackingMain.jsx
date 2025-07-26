@@ -1,15 +1,14 @@
 import { Link, useParams } from "react-router-dom";
-import { useOrders } from "../contexts/useOrders";
 import dayjs from "dayjs";
+import {TrackingMainStyled} from "../styles/TrackingMain.styled";
 
-function TrackingMain() {
-  const { matchingOrders } = useOrders();
+function TrackingMain({ matchingOrders }) {
   const { orderId } = useParams();
 
   const matchingOrder = matchingOrders.filter((order) => order.id === orderId);
 
   return (
-    <main className="tracking-main">
+    <TrackingMainStyled className="tracking-main">
       {matchingOrder.map((order, i) => {
         const orderTime = dayjs(order.orderTime);
         const deliveryTime = dayjs(order.products[i].estimatedDeliveryTime);
@@ -86,7 +85,7 @@ function TrackingMain() {
           </div>
         );
       })}
-    </main>
+    </TrackingMainStyled>
   );
 }
 

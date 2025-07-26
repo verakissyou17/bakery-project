@@ -1,4 +1,3 @@
-import { useProducts } from "../contexts/useProducts";
 import { useOrders } from "../contexts/useOrders";
 import { formatPrice } from "../utils/formatPrice";
 import { useNavigate } from "react-router-dom";
@@ -8,16 +7,14 @@ import { PaymentSummaryStyled } from "../styles/PaymentSummary.styled";
 import { deliveryOptions } from "../data/deliveryOptions";
 import { FormStyled } from "../styles/Form.styled";
 
-function PaymentSummary() {
-  const {
-    totalQuantity,
-    matchingProducts,
-    selectedDeliveryOptionId,
-    handleSelectedOptionId,
-    cart,
-    setCart,
-  } = useProducts();
-
+function PaymentSummary({
+  totalQuantity,
+  matchingProducts,
+  selectedDeliveryOptionId,
+  handleSelectedOptionId,
+  cart,
+  setCart,
+}) {
   const { addOrder } = useOrders();
   const navigate = useNavigate();
 

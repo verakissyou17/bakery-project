@@ -1,18 +1,14 @@
-import { useProducts } from "../contexts/useProducts";
 import dayjs from "dayjs";
 import { formatPrice } from "../utils/formatPrice";
 import { deliveryOptions } from "../data/deliveryOptions";
 import { QuantityContainer } from "../styles/Main.styled";
 import { OrderSummaryStyled } from "../styles/OrderSummary.styled";
 
-
-function OrderSummary() {
-  const {
-    matchingProducts,
-    updateCartItemQuantity,
-    selectedDeliveryOptionId,
-  } = useProducts();
-
+function OrderSummary({
+  matchingProducts,
+  updateCartItemQuantity,
+  selectedDeliveryOptionId,
+}) {
   function handleQuantityChange(productId, newQuantity) {
     updateCartItemQuantity(productId, newQuantity);
   }

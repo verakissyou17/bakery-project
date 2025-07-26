@@ -2,7 +2,8 @@ import Header from "../components/Header";
 import HomeMain from "../components/HomeMain";
 import Footer from "../components/Footer";
 import { useProducts } from "../contexts/useProducts";
-import FeaturedProduct from "../components/FeaturedProduct";
+import FeaturedProduct from "../components/PageBanner";
+import { useState } from "react";
 
 function Home() {
   const {
@@ -13,12 +14,24 @@ function Home() {
     setQuantities,
     totalQuantity,
   } = useProducts();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [submittedSearch, setSubmittedSearch] = useState("");
+  
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(submittedSearch.toLowerCase())
+  );
+
   return (
     <>
       <FeaturedProduct />
-      <Header totalQuantity={totalQuantity} />
+      <Header
+        totalQuantity={totalQuantity}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        onSearchSubmit={() => setSubmittedSearch(searchTerm)}
+      />
       <HomeMain
-        products={products}
+        products={filteredProducts}
         quantities={quantities}
         setQuantities={setQuantities}
         cart={cart}

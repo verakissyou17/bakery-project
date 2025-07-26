@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
-import { useOrders } from "../contexts/useOrders";
 import { formatPrice } from "../utils/formatPrice";
 import dayjs from "dayjs";
+import { OrdersMainStyled } from "../styles/OrdersMain.styled";
 
-function OrdersMain() {
-  const { matchingOrders } = useOrders();
-
+function OrdersMain({ matchingOrders }) {
   return (
-    <main className="orders-main">
+    <OrdersMainStyled>
       <div className="orders-page-title">Comenzile tale</div>
       <div className="orders-grid">
         {matchingOrders.map((matchingOrder) => {
@@ -62,7 +60,7 @@ function OrdersMain() {
                       <div className="orders-product-quantity">
                         Cantitate: {item.quantity}
                       </div>
-                      <Link to={`/home/${item.name}`} className="buy-again-button" >
+                      <Link to={`/home/${ matchingOrder.products[index].productId}`} className="buy-again-button" >
                         <img
                           className="buy-again-icon"
                           src="/bakery-project/images/icons/buy-again.webp"
@@ -90,7 +88,7 @@ function OrdersMain() {
           );
         })}
       </div>
-    </main>
+    </OrdersMainStyled>
   );
 }
 

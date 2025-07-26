@@ -19,7 +19,19 @@ function CheckoutHeader() {
           <MobileLogoStyled>Riviana Dolce</MobileLogoStyled>
         </Link>
       </div>
-      <div className="total-quantity-checkout header-link">Produse ({totalQuantity})</div>
+      <div className="header-middle-section total-quantity-checkout header-link">
+        Produse ({totalQuantity})
+      </div>
+      <div className="header-right-section checkout-right-section">
+        <Link
+          className="orders-link header-link"
+          to="/orders"
+        >
+          <span className="returns-text">Retururi</span>
+          <br />
+          <span className="orders-text">& Comenzi</span>
+        </Link>
+      </div>
     </HeaderStyled>
   );
 }

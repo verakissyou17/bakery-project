@@ -1,20 +1,17 @@
 import OrderSummary from "./OrderSummary";
 import PaymentSummary from "./PaymentSummary";
-import { useProducts } from "../contexts/useProducts";
 import { useOrders } from "../contexts/useOrders";
 import { CheckoutMainStyled } from "../styles/CheckoutMain.styled";
 
-function CheckoutMain() {
-  const {
-    cart,
-    setCart,
-    totalQuantity,
-    matchingProducts,
-    updateCartItemQuantity,
-    selectedDeliveryOptionId,
-    handleSelectedOptionId,
-  } = useProducts();
-
+function CheckoutMain({
+  cart,
+  setCart,
+  totalQuantity,
+  matchingProducts,
+  updateCartItemQuantity,
+  selectedDeliveryOptionId,
+  handleSelectedOptionId,
+}) {
   const { addOrder } = useOrders();
 
   return (

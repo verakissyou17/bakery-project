@@ -79,8 +79,8 @@ export const HeaderStyled = styled.header`
   .cart-link {
     display: flex;
     align-items: center;
-    position: relative;   
-    font-weight: 700;
+    position: relative;
+    font-weight: 400;
   }
 
   .cart-text {
@@ -97,10 +97,11 @@ export const HeaderStyled = styled.header`
 
   .total-quantity-checkout {
     font-size: clamp(1.2rem, 0.742rem + 1.953vw, 2rem);
-    text-align: center;
-    flex-basis: 10rem;
-    margin-left: 1em;
-    margin-right: auto;
+    text-align: right;
+  }
+
+  .checkout-right-section {
+    max-width: 5em;
   }
 
   @media (min-width: 65em) {
@@ -112,22 +113,20 @@ export const HeaderStyled = styled.header`
 
 export const LogoStyled = styled.div`
   display: none;
+  color: var(--white);
 
   @media (min-width: 50em) {
-    .logo {
-      display: flex;
-      font-size: clamp(1.2rem, 0.742rem + 1.953vw, 2.5rem);
-    }
+    display: flex;
+    font-size: clamp(1.2rem, 0.742rem + 1.953vw, 2.5rem);
   }
 `;
 
 export const MobileLogoStyled = styled.div`
   display: flex;
   font-size: clamp(1.2rem, 0.566rem + 2.704vw, 3rem);
+  color: var(--white);
 
   @media (min-width: 50em) {
-    .mobile-logo {
-      display: none;
-    }
+    display: none;
   }
 `;

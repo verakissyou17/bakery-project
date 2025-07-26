@@ -25,7 +25,6 @@ export const FormStyled = styled.form`
   .delivery-options-details {
     flex-direction: column;
     flex: 1;
-    border: 3px solid yellow;
   }
 
   .delivery-option input {
@@ -36,7 +35,7 @@ export const FormStyled = styled.form`
 
   .delivery-option-date {
     color: var(--delivery-option-date);
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .delivery-option-price {
@@ -46,26 +45,30 @@ export const FormStyled = styled.form`
   }
 
   .user-form {
-    border: 3px solid yellow;
+    border: 1px solid var(--white);
+    padding: 1em;
+    border-radius: 0.25em;
+    margin-bottom: 1em;
   }
 
   .user-form-group {
     display: flex;
+    padding: 0.5em;
   }
 
   .user-form-group label {
     display: block;
+    margin-right: 0.5em;
   }
 
   .user-form-group input {
-    background-color: pink;
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-line);
     flex: 1;
+    margin-right: 0.5em;
   }
 
-  #number {
-    max-width: 2rem;
-  }
-
+  #number,
   #block,
   #stair,
   #apart,

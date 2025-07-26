@@ -13,7 +13,7 @@ function App() {
         element={<Home />}
       />
       <Route
-        path="/home/:orderedProduct"
+        path="/home/:orderedId"
         element={<Home />}
       />
       <Route
